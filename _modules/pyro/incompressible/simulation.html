@@ -1,0 +1,1036 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyro.incompressible.simulation &#8212; pyro 0.0.post1766+g1c0ad371e documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css?v=359afcf4" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=781239a9"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pyro/incompressible/simulation';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.gif" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../../_static/logo.gif" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">pyro 0.0</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">pyro basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">Introduction to pyro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Setting up pyro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes.html">Notes on the numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../design.html">Design ideas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running.html">Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../output.html">Working with output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../problems.html">Adding a problem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mesh</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../mesh_basics.html">Mesh overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mesh-examples.html">Mesh examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spherical-mesh.html">Spherical Polar Grid</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Multigrid</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../multigrid.html">Multigrid Solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multigrid_basics.html">Simple Multigrid Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multigrid-constant-coefficients.html">Constant-Coefficient Poisson Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multigrid-variable-coeff.html">Variable Coefficient Poisson</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multigrid-general-linear.html">General Linear Elliptic Equation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hydro Solvers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../advection_basics.html">Advection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../burgers_basics.html">Burgers’ Equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../compressible_basics.html">Compressible hydrodynamics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../compressible_problems.html">Compressible example problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../compressible_sources.html">Compressible source terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../compressible_exercises.html">Compressible exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../diffusion_basics.html">Diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../incompressible_basics.html">Incompressible hydrodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lowmach_basics.html">Low Mach number hydrodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../swe_basics.html">Shallow water hydrodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../particles_basics.html">Particles</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../compressible-rt-compare.html">Comparing the Compressible Solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../adding_a_problem_jupyter.html">Defining our own problem in Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rt_average.html">Horizontal Averages of Rayleigh-Taylor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advection-error.html">Error Measurement of the <code class="docutils literal notranslate"><span class="pre">advection_fv4</span></code> Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compressible-convergence.html">Convergence of the compressible solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../analysis.html">Analysis routines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Testing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../help.html">Contributing and getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ack.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../citing.html">Citing pyro</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../modules.html">API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../pyro.html">pyro package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.advection.html">pyro.advection package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.advection.problems.html">pyro.advection.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.advection_fv4.html">pyro.advection_fv4 package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.advection_fv4.problems.html">pyro.advection_fv4.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.advection_nonuniform.html">pyro.advection_nonuniform package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.advection_nonuniform.problems.html">pyro.advection_nonuniform.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.advection_rk.html">pyro.advection_rk package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.advection_rk.problems.html">pyro.advection_rk.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.advection_weno.html">pyro.advection_weno package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.advection_weno.problems.html">pyro.advection_weno.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.burgers.html">pyro.burgers package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.burgers.problems.html">pyro.burgers.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.burgers_viscous.html">pyro.burgers_viscous package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.burgers_viscous.problems.html">pyro.burgers_viscous.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.compressible.html">pyro.compressible package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.compressible.problems.html">pyro.compressible.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.compressible_fv4.html">pyro.compressible_fv4 package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.compressible_fv4.problems.html">pyro.compressible_fv4.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.compressible_react.html">pyro.compressible_react package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.compressible_react.problems.html">pyro.compressible_react.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.compressible_rk.html">pyro.compressible_rk package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.compressible_rk.problems.html">pyro.compressible_rk.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.compressible_sdc.html">pyro.compressible_sdc package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.compressible_sdc.problems.html">pyro.compressible_sdc.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.diffusion.html">pyro.diffusion package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.diffusion.problems.html">pyro.diffusion.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.incompressible.html">pyro.incompressible package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.incompressible.problems.html">pyro.incompressible.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.incompressible_viscous.html">pyro.incompressible_viscous package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.incompressible_viscous.problems.html">pyro.incompressible_viscous.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.lm_atm.html">pyro.lm_atm package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.lm_atm.problems.html">pyro.lm_atm.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../pyro.mesh.html">pyro.mesh package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.multigrid.html">pyro.multigrid package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.multigrid.examples.html">pyro.multigrid.examples package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../pyro.particles.html">pyro.particles package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../pyro.swe.html">pyro.swe package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../pyro.swe.problems.html">pyro.swe.problems package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../pyro.util.html">pyro.util package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../zreferences.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/python-hydro/pyro2" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/python-hydro/pyro2/issues/new?title=Issue%20on%20page%20%2F_modules/pyro/incompressible/simulation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for pyro.incompressible.simulation</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyro.mesh.array_indexer</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ai</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyro.mesh.boundary</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bnd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyro.burgers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Simulation</span> <span class="k">as</span> <span class="n">burgers_simulation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyro.incompressible</span><span class="w"> </span><span class="kn">import</span> <span class="n">incomp_interface</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyro.mesh</span><span class="w"> </span><span class="kn">import</span> <span class="n">patch</span><span class="p">,</span> <span class="n">reconstruction</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyro.multigrid</span><span class="w"> </span><span class="kn">import</span> <span class="n">MG</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyro.particles</span><span class="w"> </span><span class="kn">import</span> <span class="n">particles</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyro.simulation_null</span><span class="w"> </span><span class="kn">import</span> <span class="n">bc_setup</span><span class="p">,</span> <span class="n">grid_setup</span>
+
+
+<div class="viewcode-block" id="Simulation">
+<a class="viewcode-back" href="../../../pyro.incompressible.html#pyro.incompressible.simulation.Simulation">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">(</span><span class="n">burgers_simulation</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Simulation.initialize">
+<a class="viewcode-back" href="../../../pyro.incompressible.html#pyro.incompressible.simulation.Simulation.initialize">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">other_bc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">aux_vars</span><span class="o">=</span><span class="p">()):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the grid and variables for incompressible flow and</span>
+<span class="sd">        set the initial conditions for the chosen problem.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">my_grid</span> <span class="o">=</span> <span class="n">grid_setup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="p">,</span> <span class="n">ng</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="c1"># create the variables</span>
+        <span class="n">my_data</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">CellCenterData2d</span><span class="p">(</span><span class="n">my_grid</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">other_bc</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">define_other_bc</span><span class="p">()</span>
+
+        <span class="n">bc</span><span class="p">,</span> <span class="n">bc_xodd</span><span class="p">,</span> <span class="n">bc_yodd</span> <span class="o">=</span> <span class="n">bc_setup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="p">)</span>
+
+        <span class="c1"># velocities</span>
+        <span class="n">my_data</span><span class="o">.</span><span class="n">register_var</span><span class="p">(</span><span class="s2">&quot;x-velocity&quot;</span><span class="p">,</span> <span class="n">bc_xodd</span><span class="p">)</span>
+        <span class="n">my_data</span><span class="o">.</span><span class="n">register_var</span><span class="p">(</span><span class="s2">&quot;y-velocity&quot;</span><span class="p">,</span> <span class="n">bc_yodd</span><span class="p">)</span>
+
+        <span class="c1"># phi -- used for the projections. Has neumann BC&#39;s if v is dirichlet</span>
+        <span class="c1"># Assuming BC&#39;s are either all periodic or all dirichlet</span>
+        <span class="n">phi_bc</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">bc</span><span class="o">.</span><span class="n">xlb</span> <span class="o">==</span> <span class="s2">&quot;periodic&quot;</span><span class="p">:</span>
+            <span class="n">phi_bc</span> <span class="o">=</span> <span class="n">bc</span>
+        <span class="k">elif</span> <span class="n">bc</span><span class="o">.</span><span class="n">xlb</span> <span class="o">==</span> <span class="s2">&quot;dirichlet&quot;</span><span class="p">:</span>
+            <span class="n">phi_bc</span> <span class="o">=</span> <span class="n">bnd</span><span class="o">.</span><span class="n">BC</span><span class="p">(</span><span class="n">xlb</span><span class="o">=</span><span class="s1">&#39;neumann&#39;</span><span class="p">,</span> <span class="n">xrb</span><span class="o">=</span><span class="s1">&#39;neumann&#39;</span><span class="p">,</span>
+                           <span class="n">ylb</span><span class="o">=</span><span class="s1">&#39;neumann&#39;</span><span class="p">,</span> <span class="n">yrb</span><span class="o">=</span><span class="s1">&#39;neumann&#39;</span><span class="p">)</span>
+
+        <span class="n">my_data</span><span class="o">.</span><span class="n">register_var</span><span class="p">(</span><span class="s2">&quot;phi-MAC&quot;</span><span class="p">,</span> <span class="n">phi_bc</span><span class="p">)</span>
+        <span class="n">my_data</span><span class="o">.</span><span class="n">register_var</span><span class="p">(</span><span class="s2">&quot;phi&quot;</span><span class="p">,</span> <span class="n">phi_bc</span><span class="p">)</span>
+        <span class="n">my_data</span><span class="o">.</span><span class="n">register_var</span><span class="p">(</span><span class="s2">&quot;gradp_x&quot;</span><span class="p">,</span> <span class="n">phi_bc</span><span class="p">)</span>
+        <span class="n">my_data</span><span class="o">.</span><span class="n">register_var</span><span class="p">(</span><span class="s2">&quot;gradp_y&quot;</span><span class="p">,</span> <span class="n">phi_bc</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">aux_vars</span><span class="p">:</span>
+            <span class="n">my_data</span><span class="o">.</span><span class="n">set_aux</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">my_data</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span> <span class="o">=</span> <span class="n">my_data</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">&quot;particles.do_particles&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">n_particles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">&quot;particles.n_particles&quot;</span><span class="p">)</span>
+            <span class="n">particle_generator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">&quot;particles.particle_generator&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">particles</span> <span class="o">=</span> <span class="n">particles</span><span class="o">.</span><span class="n">Particles</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="p">,</span> <span class="n">bc</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">,</span> <span class="n">particle_generator</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_preevolve</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># now set the initial conditions for the problem</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">problem_func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Simulation.preevolve">
+<a class="viewcode-back" href="../../../pyro.incompressible.html#pyro.incompressible.simulation.Simulation.preevolve">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">preevolve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        preevolve is called before we being the timestepping loop.  For</span>
+<span class="sd">        the incompressible solver, this does an initial projection on the</span>
+<span class="sd">        velocity field and then goes through the full evolution to get the</span>
+<span class="sd">        value of phi.  The fluid state (u, v) is then reset to values</span>
+<span class="sd">        before this evolve.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_preevolve</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="n">myg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">grid</span>
+
+        <span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;x-velocity&quot;</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;y-velocity&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">fill_BC</span><span class="p">(</span><span class="s2">&quot;x-velocity&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">fill_BC</span><span class="p">(</span><span class="s2">&quot;y-velocity&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 1. do the initial projection.  This makes sure that our original</span>
+        <span class="c1"># velocity field satisfies div U = 0</span>
+
+        <span class="c1"># next create the multigrid object.  We want Neumann BCs on phi</span>
+        <span class="c1"># at solid walls and periodic on phi for periodic BCs</span>
+        <span class="n">mg</span> <span class="o">=</span> <span class="n">MG</span><span class="o">.</span><span class="n">CellCenterMG2d</span><span class="p">(</span><span class="n">myg</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">myg</span><span class="o">.</span><span class="n">ny</span><span class="p">,</span>
+                               <span class="n">xl_BC_type</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span>
+                               <span class="n">xr_BC_type</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span>
+                               <span class="n">yl_BC_type</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span>
+                               <span class="n">yr_BC_type</span><span class="o">=</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span>
+                               <span class="n">xmin</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">xmax</span><span class="p">,</span>
+                               <span class="n">ymin</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">ymax</span><span class="p">,</span>
+                               <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># first compute divU</span>
+        <span class="n">divU</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">soln_grid</span><span class="o">.</span><span class="n">scratch_array</span><span class="p">()</span>
+
+        <span class="n">divU</span><span class="o">.</span><span class="n">v</span><span class="p">()[:,</span> <span class="p">:]</span> <span class="o">=</span> \
+            <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">u</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dx</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">v</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dy</span>
+
+        <span class="c1"># solve L phi = DU</span>
+
+        <span class="c1"># initialize our guess to the solution, set the RHS to divU and</span>
+        <span class="c1"># solve</span>
+        <span class="n">mg</span><span class="o">.</span><span class="n">init_zeros</span><span class="p">()</span>
+        <span class="n">mg</span><span class="o">.</span><span class="n">init_RHS</span><span class="p">(</span><span class="n">divU</span><span class="p">)</span>
+        <span class="n">mg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">rtol</span><span class="o">=</span><span class="mf">1.e-10</span><span class="p">)</span>
+
+        <span class="c1"># store the solution in our self.cc_data object -- include a single</span>
+        <span class="c1"># ghostcell</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;phi&quot;</span><span class="p">)</span>
+        <span class="n">phi</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">get_solution</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="n">myg</span><span class="p">)</span>
+
+        <span class="c1"># compute the cell-centered gradient of phi and update the</span>
+        <span class="c1"># velocities</span>
+        <span class="n">gradp_x</span><span class="p">,</span> <span class="n">gradp_y</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">get_solution_gradient</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="n">myg</span><span class="p">)</span>
+
+        <span class="n">u</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="n">gradp_x</span>
+        <span class="n">v</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="n">gradp_y</span>
+
+        <span class="c1"># fill the ghostcells</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">fill_BC</span><span class="p">(</span><span class="s2">&quot;x-velocity&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">fill_BC</span><span class="p">(</span><span class="s2">&quot;y-velocity&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 2. now get an approximation to gradp at n-1/2 by going through the</span>
+        <span class="c1"># evolution.</span>
+
+        <span class="c1"># store the current solution -- we&#39;ll restore it in a bit</span>
+        <span class="n">orig_data</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">cell_center_data_clone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="p">)</span>
+
+        <span class="c1"># get the timestep</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method_compute_timestep</span><span class="p">()</span>
+
+        <span class="c1"># evolve</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">evolve</span><span class="p">()</span>
+
+        <span class="c1"># update gradp_x and gradp_y in our main data object</span>
+        <span class="n">new_gp_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;gradp_x&quot;</span><span class="p">)</span>
+        <span class="n">new_gp_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;gradp_y&quot;</span><span class="p">)</span>
+
+        <span class="n">orig_gp_x</span> <span class="o">=</span> <span class="n">orig_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;gradp_x&quot;</span><span class="p">)</span>
+        <span class="n">orig_gp_y</span> <span class="o">=</span> <span class="n">orig_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;gradp_y&quot;</span><span class="p">)</span>
+
+        <span class="n">orig_gp_x</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">new_gp_x</span><span class="p">[:,</span> <span class="p">:]</span>
+        <span class="n">orig_gp_y</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">new_gp_y</span><span class="p">[:,</span> <span class="p">:]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span> <span class="o">=</span> <span class="n">orig_data</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done with the pre-evolution&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_preevolve</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="Simulation.evolve">
+<a class="viewcode-back" href="../../../pyro.incompressible.html#pyro.incompressible.simulation.Simulation.evolve">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evolve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_update_velocity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">other_source_term</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evolve the incompressible equations through one timestep.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;x-velocity&quot;</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;y-velocity&quot;</span><span class="p">)</span>
+
+        <span class="n">gradp_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;gradp_x&quot;</span><span class="p">)</span>
+        <span class="n">gradp_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;gradp_y&quot;</span><span class="p">)</span>
+
+        <span class="n">phi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;phi&quot;</span><span class="p">)</span>
+
+        <span class="n">myg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">grid</span>
+
+        <span class="k">if</span> <span class="n">other_source_term</span><span class="p">:</span>
+            <span class="n">source_x</span><span class="p">,</span> <span class="n">source_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">other_source_term</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">source_x</span><span class="p">,</span> <span class="n">source_y</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+        <span class="c1"># ---------------------------------------------------------------------</span>
+        <span class="c1"># create the limited slopes of u and v (in both directions)</span>
+        <span class="c1"># ---------------------------------------------------------------------</span>
+        <span class="n">limiter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">&quot;incompressible.limiter&quot;</span><span class="p">)</span>
+
+        <span class="n">ldelta_ux</span> <span class="o">=</span> <span class="n">reconstruction</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">myg</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">limiter</span><span class="p">)</span>
+        <span class="n">ldelta_vx</span> <span class="o">=</span> <span class="n">reconstruction</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">myg</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">limiter</span><span class="p">)</span>
+
+        <span class="n">ldelta_uy</span> <span class="o">=</span> <span class="n">reconstruction</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">myg</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">limiter</span><span class="p">)</span>
+        <span class="n">ldelta_vy</span> <span class="o">=</span> <span class="n">reconstruction</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">myg</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">limiter</span><span class="p">)</span>
+
+        <span class="c1"># ---------------------------------------------------------------------</span>
+        <span class="c1"># get the advective velocities</span>
+        <span class="c1"># ---------------------------------------------------------------------</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        the advective velocities are the normal velocity through each cell</span>
+<span class="sd">        interface, and are defined on the cell edges, in a MAC type</span>
+<span class="sd">        staggered form</span>
+
+<span class="sd">                         n+1/2</span>
+<span class="sd">                        v</span>
+<span class="sd">                         i,j+1/2</span>
+<span class="sd">                    +------+------+</span>
+<span class="sd">                    |             |</span>
+<span class="sd">            n+1/2   |             |   n+1/2</span>
+<span class="sd">           u        +     U       +  u</span>
+<span class="sd">            i-1/2,j |      i,j    |   i+1/2,j</span>
+<span class="sd">                    |             |</span>
+<span class="sd">                    +------+------+</span>
+<span class="sd">                         n+1/2</span>
+<span class="sd">                        v</span>
+<span class="sd">                         i,j-1/2</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># this returns u on x-interfaces and v on y-interfaces.  These</span>
+        <span class="c1"># constitute the MAC grid</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  making MAC velocities&quot;</span><span class="p">)</span>
+
+        <span class="n">_um</span><span class="p">,</span> <span class="n">_vm</span> <span class="o">=</span> <span class="n">incomp_interface</span><span class="o">.</span><span class="n">mac_vels</span><span class="p">(</span><span class="n">myg</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span>
+                                             <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span>
+                                             <span class="n">ldelta_ux</span><span class="p">,</span> <span class="n">ldelta_vx</span><span class="p">,</span>
+                                             <span class="n">ldelta_uy</span><span class="p">,</span> <span class="n">ldelta_vy</span><span class="p">,</span>
+                                             <span class="n">gradp_x</span><span class="p">,</span> <span class="n">gradp_y</span><span class="p">,</span>
+                                             <span class="n">source_x</span><span class="p">,</span> <span class="n">source_y</span><span class="p">)</span>
+
+        <span class="n">u_MAC</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">ArrayIndexer</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">_um</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">myg</span><span class="p">)</span>
+        <span class="n">v_MAC</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">ArrayIndexer</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">_vm</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">myg</span><span class="p">)</span>
+
+        <span class="c1"># ---------------------------------------------------------------------</span>
+        <span class="c1"># do a MAC projection to make the advective velocities divergence</span>
+        <span class="c1"># free</span>
+        <span class="c1"># ---------------------------------------------------------------------</span>
+
+        <span class="c1"># we will solve L phi = D U^MAC, where phi is cell centered, and</span>
+        <span class="c1"># U^MAC is the MAC-type staggered grid of the advective</span>
+        <span class="c1"># velocities.</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  MAC projection&quot;</span><span class="p">)</span>
+
+        <span class="c1"># create the multigrid object</span>
+        <span class="n">mg</span> <span class="o">=</span> <span class="n">MG</span><span class="o">.</span><span class="n">CellCenterMG2d</span><span class="p">(</span><span class="n">myg</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">myg</span><span class="o">.</span><span class="n">ny</span><span class="p">,</span>
+                               <span class="n">xl_BC_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">BCs</span><span class="p">[</span><span class="s2">&quot;phi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">xlb</span><span class="p">,</span>
+                               <span class="n">xr_BC_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">BCs</span><span class="p">[</span><span class="s2">&quot;phi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">xrb</span><span class="p">,</span>
+                               <span class="n">yl_BC_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">BCs</span><span class="p">[</span><span class="s2">&quot;phi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">ylb</span><span class="p">,</span>
+                               <span class="n">yr_BC_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">BCs</span><span class="p">[</span><span class="s2">&quot;phi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">yrb</span><span class="p">,</span>
+                               <span class="n">xmin</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">xmax</span><span class="p">,</span>
+                               <span class="n">ymin</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">ymax</span><span class="p">,</span>
+                               <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># first compute divU</span>
+        <span class="n">divU</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">soln_grid</span><span class="o">.</span><span class="n">scratch_array</span><span class="p">()</span>
+
+        <span class="c1"># MAC velocities are edge-centered.  divU is cell-centered.</span>
+        <span class="n">divU</span><span class="o">.</span><span class="n">v</span><span class="p">()[:,</span> <span class="p">:]</span> <span class="o">=</span> \
+            <span class="p">(</span><span class="n">u_MAC</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">u_MAC</span><span class="o">.</span><span class="n">v</span><span class="p">())</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dx</span> <span class="o">+</span> <span class="p">(</span><span class="n">v_MAC</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">v_MAC</span><span class="o">.</span><span class="n">v</span><span class="p">())</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dy</span>
+
+        <span class="c1"># solve the Poisson problem</span>
+        <span class="n">mg</span><span class="o">.</span><span class="n">init_zeros</span><span class="p">()</span>
+        <span class="n">mg</span><span class="o">.</span><span class="n">init_RHS</span><span class="p">(</span><span class="n">divU</span><span class="p">)</span>
+        <span class="n">mg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">rtol</span><span class="o">=</span><span class="mf">1.e-12</span><span class="p">)</span>
+
+        <span class="c1"># update the normal velocities with the pressure gradient -- these</span>
+        <span class="c1"># constitute our advective velocities</span>
+        <span class="n">phi_MAC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;phi-MAC&quot;</span><span class="p">)</span>
+        <span class="n">solution</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">get_solution</span><span class="p">()</span>
+
+        <span class="n">phi_MAC</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">solution</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># we need the MAC velocities on all edges of the computational domain</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">u_MAC</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="n">b</span><span class="p">)[:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="p">(</span><span class="n">phi_MAC</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">phi_MAC</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">buf</span><span class="o">=</span><span class="n">b</span><span class="p">))</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dx</span>
+
+        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">v_MAC</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="n">b</span><span class="p">)[:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="p">(</span><span class="n">phi_MAC</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">phi_MAC</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">buf</span><span class="o">=</span><span class="n">b</span><span class="p">))</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dy</span>
+
+        <span class="c1"># ---------------------------------------------------------------------</span>
+        <span class="c1"># recompute the interface states, using the advective velocity</span>
+        <span class="c1"># from above</span>
+        <span class="c1"># ---------------------------------------------------------------------</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  making u, v edge states&quot;</span><span class="p">)</span>
+
+        <span class="n">_ux</span><span class="p">,</span> <span class="n">_vx</span><span class="p">,</span> <span class="n">_uy</span><span class="p">,</span> <span class="n">_vy</span> <span class="o">=</span> \
+               <span class="n">incomp_interface</span><span class="o">.</span><span class="n">states</span><span class="p">(</span><span class="n">myg</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span>
+                                       <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span>
+                                       <span class="n">ldelta_ux</span><span class="p">,</span> <span class="n">ldelta_vx</span><span class="p">,</span>
+                                       <span class="n">ldelta_uy</span><span class="p">,</span> <span class="n">ldelta_vy</span><span class="p">,</span>
+                                       <span class="n">gradp_x</span><span class="p">,</span> <span class="n">gradp_y</span><span class="p">,</span>
+                                       <span class="n">u_MAC</span><span class="p">,</span> <span class="n">v_MAC</span><span class="p">,</span>
+                                       <span class="n">source_x</span><span class="p">,</span> <span class="n">source_y</span><span class="p">)</span>
+
+        <span class="n">u_xint</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">ArrayIndexer</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">_ux</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">myg</span><span class="p">)</span>
+        <span class="n">v_xint</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">ArrayIndexer</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">_vx</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">myg</span><span class="p">)</span>
+        <span class="n">u_yint</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">ArrayIndexer</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">_uy</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">myg</span><span class="p">)</span>
+        <span class="n">v_yint</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">ArrayIndexer</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">_vy</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">myg</span><span class="p">)</span>
+
+        <span class="c1"># ---------------------------------------------------------------------</span>
+        <span class="c1"># update U to get the provisional velocity field</span>
+        <span class="c1"># ---------------------------------------------------------------------</span>
+
+        <span class="n">proj_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rp</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">&quot;incompressible.proj_type&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">other_update_velocity</span><span class="p">:</span>
+            <span class="n">U_MAC</span> <span class="o">=</span> <span class="p">(</span><span class="n">u_MAC</span><span class="p">,</span> <span class="n">v_MAC</span><span class="p">)</span>
+            <span class="n">U_INT</span> <span class="o">=</span> <span class="p">(</span><span class="n">u_xint</span><span class="p">,</span> <span class="n">u_yint</span><span class="p">,</span> <span class="n">v_xint</span><span class="p">,</span> <span class="n">v_yint</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">do_other_update_velocity</span><span class="p">(</span><span class="n">U_MAC</span><span class="p">,</span> <span class="n">U_INT</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  doing provisional update of u, v&quot;</span><span class="p">)</span>
+
+            <span class="c1"># compute (U.grad)U</span>
+
+            <span class="c1"># we want u_MAC U_x + v_MAC U_y</span>
+            <span class="n">advect_x</span> <span class="o">=</span> <span class="n">myg</span><span class="o">.</span><span class="n">scratch_array</span><span class="p">()</span>
+            <span class="n">advect_y</span> <span class="o">=</span> <span class="n">myg</span><span class="o">.</span><span class="n">scratch_array</span><span class="p">()</span>
+
+            <span class="c1"># u u_x + v u_y</span>
+            <span class="n">advect_x</span><span class="o">.</span><span class="n">v</span><span class="p">()[:,</span> <span class="p">:]</span> <span class="o">=</span> \
+                <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">u_MAC</span><span class="o">.</span><span class="n">v</span><span class="p">()</span> <span class="o">+</span> <span class="n">u_MAC</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">u_xint</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">u_xint</span><span class="o">.</span><span class="n">v</span><span class="p">())</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dx</span> <span class="o">+</span> \
+                <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">v_MAC</span><span class="o">.</span><span class="n">v</span><span class="p">()</span> <span class="o">+</span> <span class="n">v_MAC</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">u_yint</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">u_yint</span><span class="o">.</span><span class="n">v</span><span class="p">())</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dy</span>
+
+            <span class="c1"># u v_x + v v_y</span>
+            <span class="n">advect_y</span><span class="o">.</span><span class="n">v</span><span class="p">()[:,</span> <span class="p">:]</span> <span class="o">=</span> \
+                <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">u_MAC</span><span class="o">.</span><span class="n">v</span><span class="p">()</span> <span class="o">+</span> <span class="n">u_MAC</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">v_xint</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">v_xint</span><span class="o">.</span><span class="n">v</span><span class="p">())</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dx</span> <span class="o">+</span> \
+                <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">v_MAC</span><span class="o">.</span><span class="n">v</span><span class="p">()</span> <span class="o">+</span> <span class="n">v_MAC</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">v_yint</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">v_yint</span><span class="o">.</span><span class="n">v</span><span class="p">())</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dy</span>
+
+            <span class="k">if</span> <span class="n">proj_type</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">u</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">*</span><span class="n">advect_x</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">*</span><span class="n">gradp_x</span><span class="p">[:,</span> <span class="p">:])</span>
+                <span class="n">v</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">*</span><span class="n">advect_y</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">*</span><span class="n">gradp_y</span><span class="p">[:,</span> <span class="p">:])</span>
+
+            <span class="k">elif</span> <span class="n">proj_type</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">u</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">*</span><span class="n">advect_x</span><span class="p">[:,</span> <span class="p">:]</span>
+                <span class="n">v</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">*</span><span class="n">advect_y</span><span class="p">[:,</span> <span class="p">:]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">fill_BC</span><span class="p">(</span><span class="s2">&quot;x-velocity&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">fill_BC</span><span class="p">(</span><span class="s2">&quot;y-velocity&quot;</span><span class="p">)</span>
+
+        <span class="c1"># ---------------------------------------------------------------------</span>
+        <span class="c1"># project the final velocity</span>
+        <span class="c1"># ---------------------------------------------------------------------</span>
+
+        <span class="c1"># now we solve L phi = D (U* /dt)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  final projection&quot;</span><span class="p">)</span>
+
+        <span class="c1"># create the multigrid object</span>
+        <span class="n">mg</span> <span class="o">=</span> <span class="n">MG</span><span class="o">.</span><span class="n">CellCenterMG2d</span><span class="p">(</span><span class="n">myg</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">myg</span><span class="o">.</span><span class="n">ny</span><span class="p">,</span>
+                               <span class="n">xl_BC_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">BCs</span><span class="p">[</span><span class="s2">&quot;phi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">xlb</span><span class="p">,</span>
+                               <span class="n">xr_BC_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">BCs</span><span class="p">[</span><span class="s2">&quot;phi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">xrb</span><span class="p">,</span>
+                               <span class="n">yl_BC_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">BCs</span><span class="p">[</span><span class="s2">&quot;phi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">ylb</span><span class="p">,</span>
+                               <span class="n">yr_BC_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">BCs</span><span class="p">[</span><span class="s2">&quot;phi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">yrb</span><span class="p">,</span>
+                               <span class="n">xmin</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">xmax</span><span class="p">,</span>
+                               <span class="n">ymin</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">myg</span><span class="o">.</span><span class="n">ymax</span><span class="p">,</span>
+                               <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># first compute divU</span>
+
+        <span class="c1"># u/v are cell-centered, divU is cell-centered</span>
+        <span class="n">divU</span><span class="o">.</span><span class="n">v</span><span class="p">()[:,</span> <span class="p">:]</span> <span class="o">=</span> \
+            <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">u</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dx</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">v</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dy</span>
+
+        <span class="n">mg</span><span class="o">.</span><span class="n">init_RHS</span><span class="p">(</span><span class="n">divU</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+
+        <span class="c1"># use the old phi as our initial guess</span>
+        <span class="n">phiGuess</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">soln_grid</span><span class="o">.</span><span class="n">scratch_array</span><span class="p">()</span>
+        <span class="n">phiGuess</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">phi</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">mg</span><span class="o">.</span><span class="n">init_solution</span><span class="p">(</span><span class="n">phiGuess</span><span class="p">)</span>
+
+        <span class="c1"># solve</span>
+        <span class="n">mg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">rtol</span><span class="o">=</span><span class="mf">1.e-12</span><span class="p">)</span>
+
+        <span class="c1"># store the solution</span>
+        <span class="n">phi</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">get_solution</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="n">myg</span><span class="p">)</span>
+
+        <span class="c1"># compute the cell-centered gradient of p and update the velocities</span>
+        <span class="c1"># this differs depending on what we projected.</span>
+        <span class="n">gradphi_x</span><span class="p">,</span> <span class="n">gradphi_y</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">get_solution_gradient</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="n">myg</span><span class="p">)</span>
+
+        <span class="c1"># u = u - grad_x phi dt</span>
+        <span class="n">u</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">*</span><span class="n">gradphi_x</span>
+        <span class="n">v</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">*</span><span class="n">gradphi_y</span>
+
+        <span class="c1"># store gradp for the next step</span>
+        <span class="k">if</span> <span class="n">proj_type</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">gradp_x</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">+=</span> <span class="n">gradphi_x</span><span class="p">[:,</span> <span class="p">:]</span>
+            <span class="n">gradp_y</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">+=</span> <span class="n">gradphi_y</span><span class="p">[:,</span> <span class="p">:]</span>
+
+        <span class="k">elif</span> <span class="n">proj_type</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">gradp_x</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">gradphi_x</span><span class="p">[:,</span> <span class="p">:]</span>
+            <span class="n">gradp_y</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">gradphi_y</span><span class="p">[:,</span> <span class="p">:]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">fill_BC</span><span class="p">(</span><span class="s2">&quot;x-velocity&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">fill_BC</span><span class="p">(</span><span class="s2">&quot;y-velocity&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">particles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="o">.</span><span class="n">update_particles</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+
+        <span class="c1"># increment the time</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_preevolve</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">t</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="Simulation.dovis">
+<a class="viewcode-back" href="../../../pyro.incompressible.html#pyro.incompressible.simulation.Simulation.dovis">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dovis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Do runtime visualization</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">&quot;font&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;x-velocity&quot;</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;y-velocity&quot;</span><span class="p">)</span>
+
+        <span class="n">myg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">grid</span>
+
+        <span class="n">vort</span> <span class="o">=</span> <span class="n">myg</span><span class="o">.</span><span class="n">scratch_array</span><span class="p">()</span>
+        <span class="n">divU</span> <span class="o">=</span> <span class="n">myg</span><span class="o">.</span><span class="n">scratch_array</span><span class="p">()</span>
+
+        <span class="n">vort</span><span class="o">.</span><span class="n">v</span><span class="p">()[:,</span> <span class="p">:]</span> <span class="o">=</span> \
+             <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">v</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dx</span> <span class="o">-</span> \
+             <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">u</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dy</span>
+
+        <span class="n">divU</span><span class="o">.</span><span class="n">v</span><span class="p">()[:,</span> <span class="p">:]</span> <span class="o">=</span> \
+            <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">u</span><span class="o">.</span><span class="n">ip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dx</span> <span class="o">+</span> \
+            <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">v</span><span class="o">.</span><span class="n">jp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">myg</span><span class="o">.</span><span class="n">dy</span>
+
+        <span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">vort</span><span class="p">,</span> <span class="n">divU</span><span class="p">]</span>
+        <span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\nabla \times U$&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\nabla \cdot U$&quot;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+            <span class="n">f</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">v</span><span class="p">()),</span>
+                            <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+                            <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">myg</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span> <span class="n">myg</span><span class="o">.</span><span class="n">xmax</span><span class="p">,</span> <span class="n">myg</span><span class="o">.</span><span class="n">ymin</span><span class="p">,</span> <span class="n">myg</span><span class="o">.</span><span class="n">ymax</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cm</span><span class="p">)</span>
+
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">field_names</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+
+            <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">particles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">particle_positions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="o">.</span><span class="n">get_positions</span><span class="p">()</span>
+            <span class="c1"># dye particles</span>
+            <span class="n">colors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="o">.</span><span class="n">get_init_positions</span><span class="p">()[:,</span> <span class="mi">0</span><span class="p">]</span>
+
+            <span class="c1"># plot particles</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">particle_positions</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="n">particle_positions</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Greys&quot;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">myg</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span> <span class="n">myg</span><span class="o">.</span><span class="n">xmax</span><span class="p">])</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">myg</span><span class="o">.</span><span class="n">ymin</span><span class="p">,</span> <span class="n">myg</span><span class="o">.</span><span class="n">ymax</span><span class="p">])</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">figtext</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.0125</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cc_data</span><span class="o">.</span><span class="n">t</span><span class="si">:</span><span class="s2">10.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Simulation.define_other_bc">
+<a class="viewcode-back" href="../../../pyro.incompressible.html#pyro.incompressible.simulation.Simulation.define_other_bc">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">define_other_bc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Used to set up user-defined BC&#39;s (see e.g. incompressible_viscous)</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="Simulation.other_source_term">
+<a class="viewcode-back" href="../../../pyro.incompressible.html#pyro.incompressible.simulation.Simulation.other_source_term">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">other_source_term</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add source terms (other than gradp) for getting interface state values,</span>
+<span class="sd">        in the x and y directions</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="Simulation.do_other_update_velocity">
+<a class="viewcode-back" href="../../../pyro.incompressible.html#pyro.incompressible.simulation.Simulation.do_other_update_velocity">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_other_update_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">U_MAC</span><span class="p">,</span> <span class="n">U_INT</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Change the method for updating the velocity from the projected velocity</span>
+<span class="sd">        and interface states (see e.g. incompressible_viscous)</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By pyro development team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, pyro development team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
